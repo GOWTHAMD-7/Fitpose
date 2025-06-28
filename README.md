@@ -49,13 +49,20 @@
 
 ---
 
-##  Sample Screens 
+## 📸 Sample Screens
 
-<p float="left">
-  <img src="gifs/posture.gif" width="300"/>
-  <img src="gifs/food_detection.gif" width="300"/>
-  <img src="gifs/dashboard.gif" width="300"/>
-</p>
+### 🧠 AI Personalized Plan
+<img src="Videos and photos/AI Personalized Plan.png" width="600"/>
+
+### 🏅 Badges and Achievements
+<img src="Videos and photos/Badges and Achivements.png" width="600"/>
+
+### 📊 Body Metrics Calculator
+<img src="Videos and photos/Body Metrics Calculator.png" width="600"/>
+
+### 🍽️ Macronutrient Calculator
+<img src="Videos and photos/Macro nutrient calculator.png" width="600"/>
+
 
 ---
 
