@@ -49,7 +49,11 @@
 
 ---
 ## Sample Screens & Demo
-###  Demo video
+## 🎥 Demo Video – Full Walkthrough
+
+[![Watch Demo](Videos%20and%20photos/AI%20Personalized%20Plan.png)](https://github.com/Preethamn15/Smart-AI-Gym-Trainer-With-RealTime-Exercise-Tracking-and-Nutrition-Assistant/blob/main/Videos%20and%20photos/be333e32-4dfb-4134-9203-f8fa997b441e.mov?raw=true)
+
+> 🔗 Click the image above to watch or download the demo video.
 
 
 ###  AI Personalized Plan
