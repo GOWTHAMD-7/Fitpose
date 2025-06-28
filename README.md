@@ -49,18 +49,23 @@
 
 ---
 
-## 📸 Sample Screens
+##  Sample Screens
+###  Demo Video – Full Walkthrough
+<video width="600" controls>
+  <source src="Videos and photos/demo-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-### 🧠 AI Personalized Plan
+###  AI Personalized Plan
 <img src="Videos and photos/AI Personalized Plan.png" width="600"/>
 
-### 🏅 Badges and Achievements
+###  Badges and Achievements
 <img src="Videos and photos/Badges and Achivements.png" width="600"/>
 
-### 📊 Body Metrics Calculator
+###  Body Metrics Calculator
 <img src="Videos and photos/Body Metrics Calculator.png" width="600"/>
 
-### 🍽️ Macronutrient Calculator
+### 🍽Macronutrient Calculator
 <img src="Videos and photos/Macro nutrient calculator.png" width="600"/>
 
 
