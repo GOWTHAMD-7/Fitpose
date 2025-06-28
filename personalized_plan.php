@@ -1,59 +1,50 @@
-<?php
-session_start();
-// You can include your logic here to check if the user is logged in, 
-// or you can directly generate a fitness plan based on the input form.
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Fitness Plan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dynamic Workout Plan Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
-            background-color: #1f2937; /* Dark background */
-            color: #d1d5db; /* Light text */
+            background-color: #1f2937;
+            color: #d1d5db;
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
         }
 
         .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 30px 40px;
-            background-color: #2d3748; /* Card background */
+            max-width: 850px;
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #2d3748;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
-        h1, .result {
-            text-align: center;
-        }
-
         h1 {
-            color: #34a853; /* Accent green */
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+            color: #34a853;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .form-label {
             color: #a0aec0;
             font-weight: 500;
         }
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: #1a202c;
             color: #d1d5db;
             border: 1px solid #4a5568;
             border-radius: 8px;
-            padding: 12px;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             border-color: #34a853;
             box-shadow: 0 0 8px rgba(52, 168, 83, 0.6);
         }
@@ -61,192 +52,288 @@ session_start();
         .btn-submit {
             background-color: #16a085;
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 15px;
         }
 
         .btn-submit:hover {
             background-color: #1abc9c;
         }
 
-        .fitness-plan-result {
-            margin-top: 30px;
+        .card {
             background-color: #34495e;
             color: #ecf0f1;
-            padding: 25px;
+            margin-top: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .fitness-plan-result h3 {
-            font-size: 1.6rem;
+        .card-header {
+            background-color: #1abc9c;
+            color: white;
             font-weight: bold;
-        }
-
-        .exercise-section {
-            margin-top: 20px;
-        }
-
-        .exercise {
-            margin-bottom: 20px;
-        }
-
-        .exercise h5 {
             font-size: 1.2rem;
-            font-weight: bold;
         }
 
-        .exercise p {
-            font-size: 1rem;
-            margin-bottom: 5px;
+        .exercise-list li {
+            margin-bottom: 8px;
         }
 
-        .exercise ul {
-            list-style-type: none;
-            padding-left: 0;
+        .btn-actions {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .exercise ul li {
-            margin-bottom: 10px;
-        }
-
-        .exercise ul li strong {
-            color: #16a085;
-        }
-
-        .home-btn {
+        .btn-action {
             background-color: #16a085;
             color: white;
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 10px 20px;
-            text-align: center;
+            border: none;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .home-btn:hover {
+        .btn-action:hover {
             background-color: #1abc9c;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            background-color: #2d3748;
+        }
+
+        th,
+        td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid #4a5568;
+            font-weight: 500;
+        }
+
+        th {
+            background-color: #16a085;
+            color: #fff;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
-        <h1 class="text-center">Get Your Personalized Fitness Plan</h1>
+        <h1>Dynamic Workout Plan Generator</h1>
 
-        <!-- Fitness Plan Input Form -->
-        <div class="form-section">
-            <form action="personalized_plan.php" method="POST">
-                <div class="mb-3">
-                    <label for="age" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="age" name="age" required>
-                </div>
-                <div class="mb-3">
-                    <label for="gender" class="form-label">Gender</label>
-                    <select class="form-control" id="gender" name="gender" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="height" class="form-label">Height (cm)</label>
-                    <input type="number" class="form-control" id="height" name="height" required>
-                </div>
-                <div class="mb-3">
-                    <label for="weight" class="form-label">Weight (kg)</label>
-                    <input type="number" class="form-control" id="weight" name="weight" required>
-                </div>
-                <div class="mb-3">
-                    <label for="activity" class="form-label">Activity Level</label>
-                    <select class="form-control" id="activity" name="activity" required>
-                        <option value="sedentary">Sedentary</option>
-                        <option value="active">Active</option>
-                        <option value="very_active">Very Active</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="goal" class="form-label">Fitness Goal</label>
-                    <select class="form-control" id="goal" name="goal" required>
-                        <option value="weight_loss">Weight Loss</option>
-                        <option value="muscle_gain">Muscle Gain</option>
-                        <option value="maintain">Maintain Weight</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit w-100">Generate Fitness Plan</button>
-            </form>
-        </div>
+        <form method="POST" action="">
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" min="10" max="100" id="age" name="age" placeholder="Enter your age" required
+                    class="form-control" value="<?php echo isset($_POST['age']) ? htmlspecialchars($_POST['age']) : '' ?>" />
+            </div>
 
-        <!-- Display Personalized Plan -->
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <select id="gender" name="gender" required class="form-select">
+                    <option value="" disabled <?php if (!isset($_POST['gender'])) echo 'selected'; ?>>Select Gender
+                    </option>
+                    <option value="male" <?php if (isset($_POST['gender']) && $_POST['gender'] == 'male') echo 'selected'; ?>>
+                        Male</option>
+                    <option value="female"
+                        <?php if (isset($_POST['gender']) && $_POST['gender'] == 'female') echo 'selected'; ?>>Female
+                    </option>
+                    <option value="other" <?php if (isset($_POST['gender']) && $_POST['gender'] == 'other') echo 'selected'; ?>>
+                        Other</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="height" class="form-label">Height (cm)</label>
+                <input type="number" min="50" max="300" id="height" name="height" placeholder="Enter your height in cm"
+                    required class="form-control"
+                    value="<?php echo isset($_POST['height']) ? htmlspecialchars($_POST['height']) : '' ?>" />
+            </div>
+
+            <div class="mb-3">
+                <label for="weight" class="form-label">Weight (kg)</label>
+                <input type="number" min="20" max="300" id="weight" name="weight" placeholder="Enter your weight in kg"
+                    required class="form-control"
+                    value="<?php echo isset($_POST['weight']) ? htmlspecialchars($_POST['weight']) : '' ?>" />
+            </div>
+
+            <div class="mb-3">
+                <label for="activity" class="form-label">Activity Level</label>
+                <select id="activity" name="activity" required class="form-select">
+                    <option value="" disabled <?php if (!isset($_POST['activity'])) echo 'selected'; ?>>Select Activity
+                        Level
+                    </option>
+                    <option value="sedentary"
+                        <?php if (isset($_POST['activity']) && $_POST['activity'] == 'sedentary') echo 'selected'; ?>>Sedentary
+                        (little or no exercise)</option>
+                    <option value="active"
+                        <?php if (isset($_POST['activity']) && $_POST['activity'] == 'active') echo 'selected'; ?>>Active
+                        (moderate exercise 3-5 days/week)</option>
+                    <option value="very_active"
+                        <?php if (isset($_POST['activity']) && $_POST['activity'] == 'very_active') echo 'selected'; ?>>Very
+                        Active (hard exercise 6-7 days/week)</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="goal" class="form-label">Fitness Goal</label>
+                <select id="goal" name="goal" required class="form-select">
+                    <option value="" disabled <?php if (!isset($_POST['goal'])) echo 'selected'; ?>>Select Goal</option>
+                    <option value="weight_loss"
+                        <?php if (isset($_POST['goal']) && $_POST['goal'] == 'weight_loss') echo 'selected'; ?>>Weight Loss
+                    </option>
+                    <option value="muscle_gain"
+                        <?php if (isset($_POST['goal']) && $_POST['goal'] == 'muscle_gain') echo 'selected'; ?>>Muscle Gain
+                    </option>
+                    <option value="maintain"
+                        <?php if (isset($_POST['goal']) && $_POST['goal'] == 'maintain') echo 'selected'; ?>>Maintain Weight
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Generate Weekly Workout Plan</button>
+        </form>
+
         <?php
+        function generateWorkoutPlan($activity, $goal)
+        {
+            $plan = [];
+
+            if ($goal == 'weight_loss') {
+                $plan =[
+                    'Monday' => 'Cardio: Running or Cycling - 30 mins steady pace',
+                    'Tuesday' => 'Strength Training: Squats (4 sets x 12 reps), Push-ups (4x10), Lunges (3x12 each leg), Plank (3x30 sec)',
+                    'Wednesday' => 'HIIT Cardio: 5 rounds of Jumping Jacks (30 sec), Burpees (10 reps), High Knees (30 sec), Rest (30 sec)',
+                    'Thursday' => 'Bodyweight Strength: Push-ups (4x12), Walking Lunges (3x20 steps), Tricep Dips (3x15), Wall Sit (3x40 sec), Leg Raises (3x20)',
+                    'Friday' => 'Cardio & Mobility: Swimming or Brisk Walking - 30-40 mins, Dynamic Stretching - 10 mins',
+                    'Saturday' => 'Strength Training with Weights: Deadlifts (4x10), Overhead Press (3x12), Resistance Band Rows (4x15), Bicep Curls (3x12)',
+                    'Sunday' => 'Rest & Recovery: Light Stretching or Foam Rolling - 15-20 mins, Meditation or Breathing Exercises - 10-15 mins'
+                ];     
+            } 
+            
+            elseif ($goal == 'muscle_gain') {
+                $plan = [
+                    'Monday' => 'Upper Body Strength: Bench Press (4x8-10), Pull-Ups or Lat Pulldown (4x8-12), Dumbbell Shoulder Press (4x10), Barbell Rows (3x8-10), Bicep Curls (3x12)',
+                    'Tuesday' => 'Lower Body Strength: Squats (4x8-12), Romanian Deadlifts (4x10), Leg Press (3x10-12), Walking Lunges (3x20 steps), Calf Raises (4x15-20)',
+                    'Wednesday' => 'Light Cardio: Jogging or Cycling - 20 mins steady pace, Stretching and Mobility - 10 mins',
+                    'Thursday' => 'Push Focus Strength: Incline Dumbbell Press (4x8-10), Overhead Barbell Press (4x8-10), Triceps Dips or Skull Crushers (3x12), Lateral Raises (3x15), Push-ups (3x15-20)',
+                    'Friday' => 'Pull Focus Strength: Deadlifts (4x6-8), Chin-Ups (4x8-10), Barbell or Dumbbell Rows (4x10), Face Pulls (3x15), Hammer Curls (3x12)',
+                    'Saturday' => 'Active Recovery Cardio: Swimming, brisk walking, or cycling - 30-40 mins',
+                ];
+            } else { // maintain
+                $plan = [
+                    'Monday' => 'Mixed Cardio & Strength (Moderate)',
+                    'Tuesday' => 'Strength Training (Full body)',
+                    'Wednesday' => 'Cardio (Moderate intensity)',
+                    'Thursday' => 'Strength Training (Focus on weak areas)',
+                    'Friday' => 'Cardio (Light)',
+                    'Saturday' => 'Strength Training (Bodyweight)',
+                    'Sunday' => 'Rest & Recovery',
+                ];
+            }
+
+            if ($activity == 'sedentary') {
+                foreach ($plan as $day => $activityDesc) {
+                    if (stripos($activityDesc, 'Strength') !== false) {
+                        $plan[$day] = 'Light Strength Training (Bodyweight, low reps)';
+                    } elseif (stripos($activityDesc, 'Cardio') !== false) {
+                        $plan[$day] = 'Light Cardio (Walking - 15 mins)';
+                    }
+                }
+            }
+
+            return $plan;
+        }
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Handle form submission and calculate personalized fitness plan
-            $age = $_POST['age'];
-            $gender = $_POST['gender'];
-            $height = $_POST['height'];
-            $weight = $_POST['weight'];
             $activity = $_POST['activity'];
             $goal = $_POST['goal'];
 
-            // Displaying the User Input
-            
-            echo "<hr>";
-            echo "<h5>Suggested Workout Plan</h5>";
+            $weeklyPlan = generateWorkoutPlan($activity, $goal);
 
-            // Example workout based on activity level
-            echo "<div class='exercise-section'>";
+            echo '<div class="card">';
+            echo '<div class="card-header">Your 7-Day Workout Schedule</div>';
+            echo '<div class="card-body">';
+            echo '<table>';
+            echo '<thead><tr><th>Day</th><th>Workout</th></tr></thead><tbody>';
 
-            if ($activity == "sedentary") {
-                echo "<div class='exercise'>";
-                echo "<h5>Beginner Routine (Sedentary)</h5>";
-                echo "<p>For those who are just starting, focus on light cardio and bodyweight exercises to build a foundation.</p>";
-                echo "<ul>";
-                echo "<li><strong>Bodyweight Squats:</strong> 3 sets of 12 reps</li>";
-                echo "<li><strong>Push-ups:</strong> 3 sets of 8-10 reps</li>";
-                echo "<li><strong>Plank:</strong> 3 sets of 20-30 seconds hold</li>";
-                echo "<li><strong>Walking:</strong> 20 minutes, 3 times a week</li>";
-                echo "</ul>";
-                echo "</div>";
-            } elseif ($activity == "active") {
-                echo "<div class='exercise'>";
-                echo "<h5>Intermediate Routine (Active)</h5>";
-                echo "<p>For those who are already active, aim to increase the intensity and incorporate resistance training for overall muscle strength.</p>";
-                echo "<ul>";
-                echo "<li><strong>Squats:</strong> 4 sets of 12 reps</li>";
-                echo "<li><strong>Push-ups:</strong> 4 sets of 12-15 reps</li>";
-                echo "<li><strong>Dumbbell Rows:</strong> 3 sets of 10 reps per side</li>";
-                echo "<li><strong>Plank:</strong> 3 sets of 40 seconds hold</li>";
-                echo "<li><strong>Cardio (Running/Cycling):</strong> 30 minutes, 3-4 times a week</li>";
-                echo "</ul>";
-                echo "</div>";
-            } else {
-                echo "<div class='exercise'>";
-                echo "<h5>Advanced Routine (Very Active)</h5>";
-                echo "<p>For those who are very active, focus on high-intensity workouts and advanced resistance training techniques.</p>";
-                echo "<ul>";
-                echo "<li><strong>Barbell Squats:</strong> 4 sets of 8-10 reps</li>";
-                echo "<li><strong>Pull-ups:</strong> 4 sets of 6-8 reps</li>";
-                echo "<li><strong>Deadlifts:</strong> 4 sets of 8 reps</li>";
-                echo "<li><strong>Bench Press:</strong> 4 sets of 8-10 reps</li>";
-                echo "<li><strong>HIIT (High-Intensity Interval Training):</strong> 20-30 minutes, 3 times a week</li>";
-                echo "</ul>";
-                echo "</div>";
+            foreach ($weeklyPlan as $day => $workout) {
+                echo '<tr><td><strong>' . htmlspecialchars($day) . '</strong></td><td>' . htmlspecialchars($workout) . '</td></tr>';
             }
 
-            echo "</div>";
+            echo '</tbody></table>';
 
+            echo '<div class="btn-actions">';
+            echo '<button onclick="printPlan()" class="btn-action">Print Plan</button>';
+            echo '<button onclick="downloadPDF()" class="btn-action">Download PDF</button>';
+            echo '</div>';
+
+            echo '</div></div>';
         }
         ?>
 
     </div>
 
-    <div class="text-center mt-4">
-            <a href="HOME.html" class="home-btn">Go to Home</a> <!-- Redirect to Home Page -->
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function printPlan() {
+            const content = document.querySelector('.card-body').innerHTML;
+            const originalContent = document.body.innerHTML;
+            document.body.innerHTML = content;
+            window.print();
+            document.body.innerHTML = originalContent;
+            location.reload();
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const table = document.querySelector('table');
+            let text = '7-Day Workout Schedule\n\n';
+
+            const rows = table.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const day = row.cells[0].innerText;
+                const workout = row.cells[1].innerText;
+                text += `${day}: ${workout}\n\n`;
+            });
+
+            doc.setFontSize(14);
+            doc.text(text, 10, 10);
+            doc.save('Workout_Schedule.pdf');
+        }
+    </script>
+    <div style="text-align: center; margin-top: 20px;">
+  <a href="home.html" style="text-decoration: none;">
+    <button style="
+      background-color: #16a085;
+      color: #fff;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    " onmouseover="this.style.backgroundColor='#555'" onmouseout="this.style.backgroundColor='#333'">
+      Home
+    </button>
+  </a>
+</div>
 
 </body>
 

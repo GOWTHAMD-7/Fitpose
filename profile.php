@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connect.php'; // Database connection
+require 'db_connect.php';
 
 // Redirect if not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $weight = $_POST['weight'];
     $height = $_POST['height'];
 
-    // Validate weight and height (realistic values)
     if ($weight < 20 || $weight > 300 || $height < 100 || $height > 250) {
         $error_message = "Please enter a valid weight (20-300 kg) and height (100-250 cm).";
     } else {
@@ -38,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update_stmt->bind_param("ddi", $weight, $height, $user_id);
 
         if ($update_stmt->execute()) {
-            $success_message = "Profile updated successfully!";
-            // Refresh the page to show updated values
             header('Location: profile.php?success=1');
             exit();
         } else {
@@ -54,37 +51,49 @@ $conn->close();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
             background-color: #1f2937;
             color: #d1d5db;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem;
         }
         .profile-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px 40px;
-            background-color: #2d3748;
+            background: #2d3748;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 2.5rem 3rem;
+            transition: transform 0.3s ease;
         }
-        .profile-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2rem;
+        .profile-container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
             color: #34a853;
+            font-weight: 700;
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 1.1px;
         }
         .alert {
-            text-align: center;
+            border-radius: 12px;
+            font-weight: 600;
             font-size: 1rem;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            text-align: center;
+            user-select: none;
         }
         .alert-success {
             background-color: #34a853;
@@ -94,101 +103,133 @@ $conn->close();
             background-color: #e74c3c;
             color: white;
         }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1rem;
+        label {
             color: #a0aec0;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: inline-block;
         }
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #4a5568;
+        input[type="text"],
+        input[type="number"] {
             background-color: #1a202c;
+            border: 1.8px solid #4a5568;
+            border-radius: 10px;
             color: #d1d5db;
-            border-radius: 8px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            padding: 0.7rem 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            user-select: text;
         }
-        .input-group input:focus {
+        input[type="text"]:disabled {
+            background-color: #374151;
+            color: #94a3b8;
+            cursor: not-allowed;
+            user-select: none;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus {
             outline: none;
             border-color: #34a853;
-            box-shadow: 0 0 8px rgba(52, 168, 83, 0.6);
+            box-shadow: 0 0 8px rgba(52, 168, 83, 0.7);
         }
-        button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
+        button[type="submit"] {
             background-color: #34a853;
-            color: #fff;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
             font-size: 1.2rem;
-            font-weight: bold;
+            padding: 0.9rem;
+            width: 100%;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s ease, transform 0.15s ease;
+            margin-top: 0.8rem;
+            user-select: none;
         }
-        button:hover {
+        button[type="submit"]:hover {
             background-color: #2c9c46;
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
-        .back-link, .track-progress-link {
+        .links {
+            margin-top: 1.75rem;
             text-align: center;
-            margin-top: 15px;
         }
-        .back-link a, .track-progress-link a {
+        .links a {
             color: #34a853;
             text-decoration: none;
+            font-weight: 600;
             font-size: 1rem;
+            margin: 0 0.75rem;
+            transition: color 0.25s ease;
+            user-select: none;
         }
-        .back-link a:hover, .track-progress-link a:hover {
+        .links a:hover,
+        .links a:focus {
             color: #2c9c46;
+            text-decoration: underline;
+        }
+        .btn-view-logs {
+            margin-top: 1.5rem;
+            display: inline-block;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.75rem;
+            border-radius: 12px;
+            text-align: center;
+            background-color: #34a853;
+            color: white;
+            text-decoration: none;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-view-logs:hover {
+            background-color: #2c9c46;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
+    <main class="profile-container" role="main" aria-label="User profile details and update form">
         <h1>Profile Details</h1>
 
-        <!-- Success or Error Messages -->
         <?php if (isset($_GET['success'])): ?>
-            <div class="alert alert-success">Profile updated successfully!</div>
+            <div class="alert alert-success" role="alert">Profile updated successfully!</div>
         <?php endif; ?>
         <?php if (isset($error_message)): ?>
-            <div class="alert alert-danger"><?php echo htmlspecialchars($error_message); ?></div>
+            <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error_message); ?></div>
         <?php endif; ?>
 
-        <form method="POST" action="profile.php">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($user['name']); ?>" disabled>
+        <form method="POST" action="profile.php" novalidate>
+            <div class="mb-4">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($user['name']); ?>" disabled aria-disabled="true" />
             </div>
 
-            <div class="input-group">
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight" name="weight" value="<?php echo htmlspecialchars($user['weight']); ?>" min="30" max="300" required>
+            <div class="mb-4">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" name="weight" value="<?php echo htmlspecialchars($user['weight']); ?>" min="20" max="300" required aria-required="true" />
             </div>
 
-            <div class="input-group">
-                <label for="height">Height (cm):</label>
-                <input type="number" id="height" name="height" value="<?php echo htmlspecialchars($user['height']); ?>" min="100" max="250" required>
+            <div class="mb-4">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" name="height" value="<?php echo htmlspecialchars($user['height']); ?>" min="100" max="250" required aria-required="true" />
             </div>
 
-            <button type="submit">Update Profile</button>
+            <button type="submit" aria-label="Update Profile">Update Profile</button>
         </form>
 
-        <!-- Track Progress Link -->
-        <div class="track-progress-link">
-            <p><a href="track_progress.php">Track Progress</a></p>
+        <div class="links">
+            <a href="track_progress.php" aria-label="Go to track progress page">Track Progress</a> |
+            <a href="home.html" aria-label="Return to home page">Back to Home</a>
         </div>
 
-        <div class="back-link">
-            <p><a href="home.html">Back to Home</a></p>
-        </div>
-    </div>
+        <a href="view_workouts.php" class="btn-view-logs" aria-label="View Workout Logs">
+            📝 View Workout Logs
+        </a>
+    </main>
 
 </body>
 </html>

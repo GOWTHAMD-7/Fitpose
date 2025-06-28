@@ -87,7 +87,7 @@
         <p>Stride Sync is more than just an app—it's a full fitness companion that adapts to your needs. With detailed logs, progress tracking, and personalized advice, Stride Sync ensures you're always moving in the right direction, no matter your starting point.</p>
 
         <h3>Get Started</h3>
-        <p>Ready to take the first step towards your fitness journey? <a href="login.html">Login</a> or <a href="signup.html">Sign Up</a> now to get started!</p>
+        <p>Ready to take the first step towards your fitness journey? now to get started!</p>
         <a href="HOME.html">Back to Home</a>
       </div>
 </body>
