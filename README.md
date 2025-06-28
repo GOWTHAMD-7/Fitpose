@@ -84,8 +84,10 @@ this can be a great reference model to showcase in your college and score full m
 
 We have also published a research paper based on the earlier version of this project — feel free to check it out for reference.
 Since then, we've made significant improvements to the model.
+Paper/Published for reference.pdf
 
-Note: I won't be uploading the main folder required to run the full model here.
+
+Note: I won't be uploading the main folder and sql file required to run the full model here.
 If you’re interested in running the complete project, feel free to contact me
 I’ll provide all the necessary files and step-by-step guidance.
 
