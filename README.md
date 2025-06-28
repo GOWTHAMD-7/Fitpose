@@ -44,8 +44,12 @@ AI Gym Trainer is a smart fitness assistant designed to enhance your workout and
 git clone https://github.com/yourusername/AI-Gym-Trainer.git
 cd AI-Gym-Trainer
 
-This is our final year project, and it includes all the trending technologies like AI and Deep Learning. For 1st, 2nd, and 3rd-year students, this can be a great reference model to showcase in your college and score full marks.
+This is our final year project, and it includes all the trending technologies like AI and Deep Learning. For 1st, 2nd, and 3rd-year students,
+this can be a great reference model to showcase in your college and score full marks.
 
-We have also published a research paper based on the earlier version of this project — feel free to check it out for reference. Since then, we've made significant improvements to the model.
+We have also published a research paper based on the earlier version of this project — feel free to check it out for reference.
+Since then, we've made significant improvements to the model.
 
-Note: I won't be uploading the main folder required to run the full model here. If you’re interested in running the complete project, feel free to contact me — I’ll provide all the necessary files and step-by-step guidance.
+Note: I won't be uploading the main folder required to run the full model here.
+If you’re interested in running the complete project, feel free to contact me
+I’ll provide all the necessary files and step-by-step guidance.
