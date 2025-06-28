@@ -1,23 +1,23 @@
-# 🧠 AI Gym Trainer – Real-Time Fitness & Nutrition Assistant 💪
+#  AI Gym Trainer – Real-Time Fitness & Nutrition Assistant 
 
-## 🚀 Overview
+##  Overview
 
 AI Gym Trainer is a smart fitness assistant designed to enhance your workout and diet tracking experience using Artificial Intelligence and computer vision.
 
-### 🔧 Features
+###  Features
 
-- 🎥 **Live AI Tracer:** Tracks your real-time movements using computer vision and provides instant feedback on posture and form across 7 core exercises (e.g., squats, pushups, etc.).
-- 🧍 **Posture Feedback System:** Get "Good/Bad Posture" notifications in real-time.
-- 🍱 **Food Composition Calculator:** Uses a YOLO-based model to identify food from a live camera and estimate nutritional composition.
-- 📊 **Body Metrics Calculator:** Calculates BMI, BMR, and other metrics and stores them in a MySQL database.
-- 📅 **Personalized Fitness Plan:** Automatically generates a fitness schedule based on user's profile.
-- 🍽️ **Meal Planner:** Suggests meal plans according to fitness goals (weight loss, muscle gain, etc.).
-- 📚 **Workout Logs:** Tracks previous workouts and performance.
-- 🗂️ **MySQL Integration:** All user data, workout logs, metrics, and plans are stored and retrieved from a structured DBMS.
+- **Live AI Tracer:** Tracks your real-time movements using computer vision and provides instant feedback on posture and form across 7 core exercises (e.g., squats, pushups, etc.).
+- **Posture Feedback System:** Get "Good/Bad Posture" notifications in real-time.
+- **Food Composition Calculator:** Uses a YOLO-based model to identify food from a live camera and estimate nutritional composition.
+- **Body Metrics Calculator:** Calculates BMI, BMR, and other metrics and stores them in a MySQL database.
+- **Personalized Fitness Plan:** Automatically generates a fitness schedule based on user's profile.
+- **Meal Planner:** Suggests meal plans according to fitness goals (weight loss, muscle gain, etc.).
+- **Workout Logs:** Tracks previous workouts and performance.
+- 🗂**MySQL Integration:** All user data, workout logs, metrics, and plans are stored and retrieved from a structured DBMS.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Computer Vision**: OpenCV, MediaPipe, YOLOv5
 - **AI/ML**: Pose estimation models, custom feedback logic
@@ -29,7 +29,7 @@ AI Gym Trainer is a smart fitness assistant designed to enhance your workout and
 
 ---
 
-## 💡 Use Cases
+## Use Cases
 
 - Home workout assistant for form correction
 - Smart meal tracking from just a photo
@@ -38,7 +38,7 @@ AI Gym Trainer is a smart fitness assistant designed to enhance your workout and
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 git clone https://github.com/yourusername/AI-Gym-Trainer.git
