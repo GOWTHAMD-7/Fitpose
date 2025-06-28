@@ -72,9 +72,7 @@ Whether you're a beginner looking for guidance, a student working on a final yea
 <img src="Videos and photos/Macro nutrient calculator.png" width="600"/>
 
 ---
-Installation
-git clone https://github.com/yourusername/AI-Gym-Trainer.git
-cd AI-Gym-Trainer
+
 
 This is our final year project, and it includes all the trending technologies like AI and Deep Learning.
 For 1st, 2nd, and 3rd-year students, this can be a great reference model to showcase in your college and score full marks.
@@ -84,7 +82,7 @@ For 1st, 2nd, and 3rd-year students, this can be a great reference model to show
 We have also published a research paper based on an earlier version of this project — feel free to check it out for reference.  
 Since then, we've made significant improvements to the model.
 
-📘 **[View Research Paper (PDF)](Paper/Published%20for%20reference.pdf)**
+ **[View Research Paper (PDF)](Paper/Paper%20published%20for%20reference.pdf)**
 
 
 ⚠️ Note: I won’t be uploading the main folder and SQL file required to run the full model here.
