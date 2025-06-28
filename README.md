@@ -2,84 +2,108 @@
 <h3 align="center">Your Smart Workout & Nutrition Assistant</h3>
 
 <p align="center">
-  <img src="images/demo.gif" width="600"/><br><br>
+  <img src="images/demo.gif" width="600"/><br>
   <b>Real-Time Exercise Tracking · Posture Feedback · AI Nutrition Planner</b>
 </p>
 
 ---
 
-## 📌 Overview
+## Overview
 
-**AI Gym Trainer** is a smart fitness platform that leverages **Artificial Intelligence** and **Computer Vision** to help users:
+AI Gym Trainer is an all-in-one smart fitness platform designed to revolutionize home and personal workouts using the power of Artificial Intelligence and Computer Vision. This intelligent system offers real-time monitoring of exercises, automated posture correction feedback, and advanced dietary analysis—making it a comprehensive virtual gym assistant.
 
-- Track workouts in real time
-- Get live posture feedback
-- Plan smart diets using food image recognition
+Whether you're a beginner looking for guidance, a student working on a final year project, or a fitness enthusiast aiming to optimize your training, this platform is built to help you achieve your goals with minimal equipment and maximum efficiency.
 
-Built as a **final year project**, this application integrates multiple trending technologies for a holistic fitness solution.
+ Track Your Exercise
+Using real-time pose detection and rep counting, users can perform exercises such as squats, push-ups, and lunges with automated feedback on form and accuracy.
 
----
+ Personalized Plan
+Every user gets a custom fitness plan based on body metrics, fitness goals (e.g., weight loss, muscle gain), and performance history. These plans adjust dynamically over time.
 
-## 🚀 Features
+ Meal Planner
+The AI recommends meals that align with your goals. Whether you want to bulk, cut, or maintain, the meal planner suggests nutrition-rich options using a smart recommendation engine.
 
-- ✅ **Live Exercise Tracking** – Detects 7 types of exercises (e.g., squats, push-ups)
-- ⚠️ **Posture Feedback** – Real-time form evaluation (`Good Posture ✅` or `Fix Your Form ⚠️`)
-- 🍱 **Food Recognition** – YOLOv5 model estimates nutrition from food images
-- 📊 **Health Metrics** – Calculates and stores BMI, BMR, and progress logs
-- 🧠 **AI Integration** – Combines deep learning and pose estimation
-- 🥗 **Meal Planner** – Smart diet suggestions for different goals
-- 🏋️ **Personalized Fitness Plan** – Tailored workouts based on your body profile
-- 💾 **MySQL Integration** – Stores user data, workouts, meals, and analytics
+Track Your Food
+Using a YOLOv5-based food recognition model, users can upload photos of their meals to instantly receive an estimated nutritional breakdown — calories, protein, fats, and more.
 
----
+ Other Key Features
+Workout Logs – Keep detailed records of completed sessions.
 
-## 🧠 Tech Stack
+Fitness Plan – Structured routines tailored to your body type and lifestyle.
 
-| Category        | Technologies |
-|----------------|--------------|
-| **Computer Vision** | OpenCV, MediaPipe, YOLOv5 |
-| **AI/ML**          | Custom Pose Estimation, Torch Models |
-| **Frontend/UI**    | HTML, CSS, PHP (Web), Tkinter/PyQt (Optional) |
-| **Backend**        | Python (Flask or Streamlit - customizable) |
-| **Database**       | MySQL |
-| **IDE**            | VS Code / Jupyter Notebook |
+Body Metrics – Track BMI, BMR, and other health data with graphical insights.
+
 
 ---
 
-## 💡 Use Cases
+## Features
 
-- 🏠 Home workouts with real-time feedback
-- 📷 Diet tracking through food image detection
-- 📅 Fitness planning for students, professionals & beginners
-- 🎓 Great final year project integrating AI + ML
+-  **Live Exercise Tracking** – Detects 7 exercises using computer vision (e.g., squats, push-ups).
+-  **Posture Feedback** – Real-time form evaluation: `Good Posture ` or `Fix Your Form `.
+-  **Food Recognition** – YOLOv5 model estimates nutrition from camera-captured food images.
+-  **Health Metrics** – Calculates BMI, BMR, and stores data in a MySQL database.
+-  **Personalized Fitness Plan** – Tailored routines based on your body profile and goals.
+-  **Meal Planner** – Smart meal suggestions for weight loss, muscle gain, or maintenance.
+-  **AI Integration** – Uses deep learning & pose estimation for accurate analysis.
+-  **MySQL Integration** – Logs workouts, meals, and progress for every user.
 
 ---
 
-## 🎬 Demo & Screenshots
+##  Tech Stack
 
-### 🎥 Full Demo Video
+| Area          | Technologies |
+|---------------|--------------|
+| Computer Vision | OpenCV, MediaPipe, YOLOv5 |
+| AI/ML          | Custom Pose Estimation, Torch Models |
+| Frontend/UI    | HTML, CSS, PHP (Web), Tkinter/PyQt (Optional) |
+| Backend        | Python (Flask or Streamlit - customizable) |
+| Database       | MySQL |
+| IDE            | VS Code / Jupyter Notebook |
+
+---
+
+##  Use Cases
+
+- Home workouts with real-time feedback
+- Smart diet tracking using food detection
+- Fitness planning for students, professionals & beginners
+- Great Final Year Project with AI + ML integration
+
+---
+## Sample Screens & Demo
+## 🎥 Demo Video – Full Walkthrough
+
 [![Watch Demo](Videos%20and%20photos/AI%20Personalized%20Plan.png)](https://github.com/Preethamn15/Smart-AI-Gym-Trainer-With-RealTime-Exercise-Tracking-and-Nutrition-Assistant/raw/main/Videos%20and%20photos/be333e32-4dfb-4134-9203-f8fa997b441e.mov)
 
-> 🔗 *Click the image above to download and watch the `.mov` demo video.*
+> 🔗 Click the image above download the `.mov` demo video you will get the full view of website.
 
----
 
-### 🧠 AI Personalized Plan
+###  AI Personalized Plan
 <img src="Videos and photos/AI Personalized Plan.png" width="600"/>
 
-### 🏅 Badges and Achievements
+###  Badges and Achievements
 <img src="Videos and photos/Badges and Achivements.png" width="600"/>
 
-### 📏 Body Metrics Calculator
+###  Body Metrics Calculator
 <img src="Videos and photos/Body Metrics Calculator.png" width="600"/>
 
-### 🍽 Macronutrient Calculator
+### 🍽Macronutrient Calculator
 <img src="Videos and photos/Macro nutrient calculator.png" width="600"/>
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation
 
 ```bash
 git clone https://github.com/yourusername/AI-Gym-Trainer.git
 cd AI-Gym-Trainer
+
+This is our final year project, and it includes all the trending technologies like AI and Deep Learning. For 1st, 2nd, and 3rd-year students,
+this can be a great reference model to showcase in your college and score full marks.
+
+We have also published a research paper based on the earlier version of this project — feel free to check it out for reference.
+Since then, we've made significant improvements to the model.
+
+Note: I won't be uploading the main folder required to run the full model here.
+If you’re interested in running the complete project, feel free to contact me
+I’ll provide all the necessary files and step-by-step guidance.
