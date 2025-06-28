@@ -13,7 +13,7 @@ AI Gym Trainer is a smart fitness assistant designed to enhance your workout and
 - **Personalized Fitness Plan:** Automatically generates a fitness schedule based on user's profile.
 - **Meal Planner:** Suggests meal plans according to fitness goals (weight loss, muscle gain, etc.).
 - **Workout Logs:** Tracks previous workouts and performance.
-- 🗂**MySQL Integration:** All user data, workout logs, metrics, and plans are stored and retrieved from a structured DBMS.
+- **MySQL Integration:** All user data, workout logs, metrics, and plans are stored and retrieved from a structured DBMS.
 
 ---
 
