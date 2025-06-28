@@ -48,41 +48,21 @@
 - Great Final Year Project with AI + ML integration
 
 ---
-## 📱 Sample Screens & Demo
+## Sample Screens & Demo
+###  Demo video
 
-### 🎥 Demo Video – Full Walkthrough
-[![Watch the demo](Videos%20and%20photos/AI%20Personalized%20Plan.png)](Videos%20and%20photos/demo-video.mp4)
 
-> 🔗 Click the image above to watch the full walkthrough demo video.
+###  AI Personalized Plan
+<img src="Videos and photos/AI Personalized Plan.png" width="600"/>
 
----
+###  Badges and Achievements
+<img src="Videos and photos/Badges and Achivements.png" width="600"/>
 
-### 🧠 AI Personalized Plan  
-A customized health and fitness plan tailored using AI to meet user-specific goals and preferences.
+###  Body Metrics Calculator
+<img src="Videos and photos/Body Metrics Calculator.png" width="600"/>
 
-![AI Personalized Plan](Videos%20and%20photos/AI%20Personalized%20Plan.png)
-
----
-
-### 🏅 Badges and Achievements  
-Track your milestones and stay motivated with a gamified achievement system.
-
-![Badges and Achievements](Videos%20and%20photos/Badges%20and%20Achivements.png)
-
----
-
-### 📊 Body Metrics Calculator  
-Easily monitor key body health indicators such as BMI, body fat percentage, and more.
-
-![Body Metrics Calculator](Videos%20and%20photos/Body%20Metrics%20Calculator.png)
-
----
-
-### 🍽 Macronutrient Calculator  
-Calculate daily macronutrient needs based on your goals, lifestyle, and dietary preferences.
-
-![Macronutrient Calculator](Videos%20and%20photos/Macro%20nutrient%20calculator.png)
-
+### 🍽Macronutrient Calculator
+<img src="Videos and photos/Macro nutrient calculator.png" width="600"/>
 
 ---
 
