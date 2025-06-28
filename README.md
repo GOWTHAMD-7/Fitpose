@@ -88,3 +88,9 @@ Since then, we've made significant improvements to the model.
 Note: I won't be uploading the main folder required to run the full model here.
 If you’re interested in running the complete project, feel free to contact me
 I’ll provide all the necessary files and step-by-step guidance.
+
+
+Contact @ preetham159@gmail.com
+@ preethamn2004@gmail.com
+
+
