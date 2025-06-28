@@ -14,24 +14,25 @@ AI Gym Trainer is an all-in-one smart fitness platform designed to revolutionize
 
 Whether you're a beginner looking for guidance, a student working on a final year project, or a fitness enthusiast aiming to optimize your training, this platform is built to help you achieve your goals with minimal equipment and maximum efficiency.
 
- Track Your Exercise
+ 💪 Track Your Exercise
 Using real-time pose detection and rep counting, users can perform exercises such as squats, push-ups, and lunges with automated feedback on form and accuracy.
 
- Personalized Plan
+📋 Personalized Plan
 Every user gets a custom fitness plan based on body metrics, fitness goals (e.g., weight loss, muscle gain), and performance history. These plans adjust dynamically over time.
 
- Meal Planner
+🥗 Meal Planner
 The AI recommends meals that align with your goals. Whether you want to bulk, cut, or maintain, the meal planner suggests nutrition-rich options using a smart recommendation engine.
 
-Track Your Food
+📸 Track Your Food
 Using a YOLOv5-based food recognition model, users can upload photos of their meals to instantly receive an estimated nutritional breakdown — calories, protein, fats, and more.
 
- Other Key Features
+📈 Other Key Features
 Workout Logs – Keep detailed records of completed sessions.
 
 Fitness Plan – Structured routines tailored to your body type and lifestyle.
 
 Body Metrics – Track BMI, BMR, and other health data with graphical insights.
+
 
 
 ---
