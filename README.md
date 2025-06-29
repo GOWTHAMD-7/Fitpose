@@ -89,10 +89,8 @@ Since then, we've made significant improvements to the model.
 📩 If you’re interested in running the complete project, feel free to contact me — I’ll provide all the necessary files and step-by-step guidance.
 
 Co-authored-by: K Preethi <kpreethi036@gmail.com>
-Co-authored-by: Nandeesh C M <nandeeshel2023@gmail.com>
+Nandeesh C M <nandeeshel2023@gmail.com>
 
-📬 Contact
+**Contact** 
 📧 preetham159@gmail.com
-
 📧 preethamn2004@gmail.com
-
