@@ -19,7 +19,7 @@ Whether you're a beginner looking for guidance, a student working on a final yea
 
 ## Features
 
--  **Live Exercise Tracking** – Detects 7 exercises using computer vision (e.g., squats, push-ups).
+-  **Live Exercise Tracking** – Detects 7 exercises using computer vision (e.g., squats, push-ups, dumbbell curls, alternative dumbbell curls).
 -  **Posture Feedback** – Real-time form evaluation: `Good Posture ` or `Fix Your Form `.
 -  **Food Recognition** – YOLOv5 model estimates nutrition from camera-captured food images.
 -  **Health Metrics** – Calculates BMI, BMR, and stores data in a MySQL database.
@@ -36,10 +36,10 @@ Whether you're a beginner looking for guidance, a student working on a final yea
 |---------------|--------------|
 | Computer Vision | OpenCV, MediaPipe, YOLOv5 |
 | AI/ML          | Custom Pose Estimation, Torch Models |
-| Frontend/UI    | HTML, CSS, PHP (Web), Tkinter/PyQt (Optional) |
+| Frontend/UI    | HTML, CSS, PHP (Web), Tkinter |
 | Backend        | Python (Flask or Streamlit - customizable) |
 | Database       | MySQL |
-| IDE            | VS Code / Jupyter Notebook |
+| IDE            | VS Code |
 
 ---
 
