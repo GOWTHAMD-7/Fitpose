@@ -1,12 +1,13 @@
 import cv2
 import requests
+import os
 from ultralytics import YOLO
 
 # Flask server URL
 FLASK_SERVER_URL = 'http://127.0.0.1:5000/update'
 
 # Load your YOLO model with the trained weights
-model_path = "best.pt"  # Replace with the path to your weights file
+model_path = "D:/fitpose/Smart-AI-Gym-Trainer-With-RealTime-Exercise-Tracking-and-Nutrition-Assistant/best.pt"  # Full absolute path to your weights file
 yolo_model = YOLO(model_path)
 
 # Start the webcam for real-time detection
